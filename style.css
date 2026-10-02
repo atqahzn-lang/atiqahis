@@ -1,7 +1,3 @@
-/* =========================================
-   GLOBAL
-========================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -17,7 +13,7 @@ body {
 body {
   min-height: 100vh;
 
-  background: #f7f7ff;
+  background: #F5F5F5;
 
   color: #292934;
 
@@ -30,339 +26,60 @@ body {
 
 .portfolio-page {
   width: 100%;
+
   min-height: 100vh;
+
+  padding:
+    100px 20px
+    120px;
 
   overflow-x: hidden;
 }
 
 
-
 /* =========================================
-   FOLDER SECTION
+   MASTER COMPOSITION
+
+   THIS controls the position of everything.
 ========================================= */
 
-.folder-section {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-
-  padding:
-    55px 20px
-    48px;
-}
-
-
-
-/* =========================================
-   FOLDER BUTTON
-========================================= */
-
-.folder-button {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin: 0;
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  color: #292934;
-
-  font: inherit;
-
-  cursor: pointer;
-}
-
-
-
-/* =========================================
-   FOLDER ICON
-========================================= */
-
-.folder-icon {
-  position: relative;
-
-  width: 140px;
-  height: 108px;
-}
-
-
-
-/* PINK BACK */
-
-.folder-back {
-  position: absolute;
-
-  left: 0;
-  top: 14px;
-
-  width: 140px;
-  height: 84px;
-
-  background: #f2a2bc;
-
-  border-radius:
-    18px
-    18px
-    14px
-    14px;
-
-  box-shadow:
-    0 10px 24px -8px
-    rgba(124, 98, 112, 0.12);
-}
-
-
-
-/* FOLDER TAB */
-
-.folder-back::before {
-  content: "";
-
-  position: absolute;
-
-  top: -14px;
-  left: 0;
-
-  width: 60px;
-  height: 32px;
-
-  background: #f2a2bc;
-
-  border-radius:
-    16px
-    16px
-    0
-    0;
-}
-
-
-
-/* BLUSH FRONT */
-
-.folder-front {
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 140px;
-  height: 82px;
-
-  background: #f9e7eb;
-
-  border:
-    1px solid
-    rgba(41, 41, 52, 0.78);
-
-  border-radius: 16px;
-
-  box-shadow:
-    0 8px 22px -10px
-    rgba(90, 75, 84, 0.18);
-}
-
-
-
-/* =========================================
-   FOLDER NAME
-========================================= */
-
-.folder-name {
-  font-size: 13px;
-
-  line-height: 1;
-
-  color: #292934;
-
-  text-align: center;
-
-  white-space: nowrap;
-}
-
-
-
-/* =========================================
-   MAIN PORTFOLIO COMPOSITION
-========================================= */
-
-.portfolio-core {
+.portfolio-shell {
   position: relative;
 
   width: 760px;
+  max-width: 100%;
 
-  max-width:
-    calc(100% - 40px);
-
-  margin:
-    0 auto
-    80px;
+  margin: 0 auto;
 }
 
 
+/* HEADER → TRANSLATOR */
 
-/* =========================================
-   HEADER
-========================================= */
+.profile-header {
+  margin-bottom: 18px;
+}
 
-.portfolio-header {
+
+/* TRANSLATOR */
+
+.translator {
   position: relative;
 
-  z-index: 20;
-
   width: 100%;
-
-  margin-bottom: 12px;
 }
 
 
-.portfolio-heading {
-  margin: 0;
+/* TRANSLATOR → NAV */
 
-  font-size: 14px;
-
-  line-height: 1.35;
-
-  font-weight: 400;
-
-  color: #292934;
-}
-
-
-.portfolio-heading em {
-  font-style: italic;
-
-  font-weight: 600;
-}
-
-
-.portfolio-heading strong {
-  font-weight: 700;
-}
-
-
-
-/* =========================================
-   ORNAMENT
-========================================= */
-
-.ornament {
-  position: absolute;
-
-  /*
-    FIGMA POSITION
-
-    width = ornament size
-    top = vertical position
-    right = horizontal position
-  */
-
-  width: 320px;
-
-  top: -82px;
-
-  right: -105px;
-
-  z-index: 15;
-
-  pointer-events: none;
-}
-
-
-.ornament svg {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  overflow: visible;
-
-
-  /*
-    FLIP HORIZONTALLY
-    TO MATCH FIGMA
-  */
-
-  transform:
-    scaleX(-1);
-
-  transform-origin:
-    center;
-}
-
-
-.ornament .ornament-path {
-  fill: none;
-
-  stroke: #292934;
-
-  stroke-width: 1.2;
-
-  stroke-linecap: round;
-
-  stroke-linejoin: round;
-
-  opacity: 0.92;
-}
-
-
-
-/* =========================================
-   TRANSLATOR
-========================================= */
-
-.translator-widget {
+.nav-section {
   position: relative;
 
-  z-index: 5;
-
-  display: block;
-
   width: 100%;
 
-  height: 500px;
+  height: 70px;
 
-  margin: 0;
-
-  border: 0;
-
-  background: transparent;
+  margin-top: 24px;
 }
-
-
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
-.navigation-widget {
-  position: relative;
-
-  z-index: 5;
-
-  display: block;
-
-  width: 100%;
-
-  height: 150px;
-
-  margin:
-    -45px 0
-    0;
-
-  border: 0;
-
-  background: transparent;
-}
-
 
 
 /* =========================================
@@ -371,68 +88,20 @@ body {
 
 @media (max-width: 700px) {
 
-  .folder-section {
+  .portfolio-page {
     padding:
-      45px 20px
-      40px;
+      70px 18px
+      90px;
   }
 
 
-  .folder-icon {
-    width: 120px;
-    height: 94px;
+  .profile-header {
+    margin-bottom: 16px;
   }
 
 
-  .folder-back {
-    width: 120px;
-    height: 74px;
-  }
-
-
-  .folder-front {
-    width: 120px;
-    height: 72px;
-  }
-
-
-  .folder-name {
-    font-size: 12px;
-  }
-
-
-  .portfolio-core {
-    width:
-      calc(100% - 32px);
-
-    max-width:
-      none;
-  }
-
-
-  .portfolio-heading {
-    font-size: 13px;
-  }
-
-
-  .ornament {
-    width: 220px;
-
-    top: -55px;
-
-    right: -25px;
-  }
-
-
-  .translator-widget {
-    height: 670px;
-  }
-
-
-  .navigation-widget {
-    height: 180px;
-
-    margin-top: -25px;
+  .nav-section {
+    margin-top: 20px;
   }
 
 }
