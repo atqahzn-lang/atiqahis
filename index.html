@@ -24,18 +24,146 @@
 
 
     <!-- ======================================
-         HEADER
+         FOLDER + WIP FILES
     ======================================= -->
 
-    <section class="hero">
+    <section class="folder-wip-zone">
 
-      <div class="hero-folder">
+      <button
+        class="folder-button"
+        id="folderButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="wipFiles"
+      >
 
-        <!-- folder SVG / vector will go here -->
+        <div class="folder-icon">
 
-        <div class="folder-name">
-          everything portfolio here
+          <div class="folder-back"></div>
+
+          <div class="folder-front"></div>
+
         </div>
+
+        <span class="folder-name">
+          everything portfolio here
+        </span>
+
+      </button>
+
+
+      <div
+        class="wip-files"
+        id="wipFiles"
+        aria-hidden="true"
+      >
+
+        <a
+          class="wip-file"
+          href="#"
+          style="--file-index: 0;"
+        >
+
+          <span class="wip-tag">
+            WIP
+          </span>
+
+          <div class="wip-sheet">
+
+            <img
+              src="./wip/wip-file.svg"
+              alt=""
+              class="wip-sheet-vector"
+            >
+
+            <span class="wip-title">
+              Portfolio build
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <a
+          class="wip-file"
+          href="#"
+          style="--file-index: 1;"
+        >
+
+          <span class="wip-tag">
+            WIP
+          </span>
+
+          <div class="wip-sheet">
+
+            <img
+              src="./wip/wip-file.svg"
+              alt=""
+              class="wip-sheet-vector"
+            >
+
+            <span class="wip-title">
+              Learning log
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <a
+          class="wip-file"
+          href="#"
+          style="--file-index: 2;"
+        >
+
+          <span class="wip-tag">
+            WIP
+          </span>
+
+          <div class="wip-sheet">
+
+            <img
+              src="./wip/wip-file.svg"
+              alt=""
+              class="wip-sheet-vector"
+            >
+
+            <span class="wip-title">
+              New case study
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <a
+          class="wip-file"
+          href="#"
+          style="--file-index: 3;"
+        >
+
+          <span class="wip-tag">
+            WIP
+          </span>
+
+          <div class="wip-sheet">
+
+            <img
+              src="./wip/wip-file.svg"
+              alt=""
+              class="wip-sheet-vector"
+            >
+
+            <span class="wip-title">
+              Creative experiment
+            </span>
+
+          </div>
+
+        </a>
 
       </div>
 
@@ -44,23 +172,19 @@
 
 
     <!-- ======================================
-         INTRO / TRANSLATOR
+         HEADER
     ======================================= -->
 
     <section class="intro-section">
 
-      <div class="section-heading">
-        Atiqah is online, a portfolio
-      </div>
+      <h1 class="portfolio-heading">
+        <em>Atiqah</em> is <strong>online</strong>, a portfolio
+      </h1>
 
-      <div
-        class="ornament"
-        id="ornament"
-        aria-hidden="true"
-      >
-        <div id="ornamentMount"></div>
-      </div>
 
+      <!-- ======================================
+           TRANSLATOR
+      ======================================= -->
 
       <iframe
         class="translator-widget"
@@ -74,7 +198,7 @@
 
 
     <!-- ======================================
-         PORTFOLIO NAVIGATION
+         NAVIGATION
     ======================================= -->
 
     <section class="navigation-section">
@@ -86,15 +210,6 @@
       >
       </iframe>
 
-    </section>
-
-
-
-    <!-- ======================================
-         FUTURE CONTENT
-    ======================================= -->
-
-    <section class="work-section">
     </section>
 
 
