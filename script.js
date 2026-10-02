@@ -1,64 +1,4 @@
 /* =========================================
-   FOLDER + WIP FILES
-========================================= */
-
-const folderZone =
-  document.querySelector(
-    ".folder-wip-zone"
-  );
-
-
-const folderButton =
-  document.getElementById(
-    "folderButton"
-  );
-
-
-const wipFiles =
-  document.getElementById(
-    "wipFiles"
-  );
-
-
-if (
-  folderZone &&
-  folderButton &&
-  wipFiles
-) {
-
-  folderButton.addEventListener(
-    "click",
-    () => {
-
-      const isOpen =
-        folderZone.classList.toggle(
-          "open"
-        );
-
-
-      folderButton.setAttribute(
-        "aria-expanded",
-        isOpen
-          ? "true"
-          : "false"
-      );
-
-
-      wipFiles.setAttribute(
-        "aria-hidden",
-        isOpen
-          ? "false"
-          : "true"
-      );
-
-    }
-  );
-
-}
-
-
-
-/* =========================================
    ORNAMENT
 ========================================= */
 
@@ -72,6 +12,7 @@ const ornamentMount =
   document.getElementById(
     "ornamentMount"
   );
+
 
 
 async function loadOrnament() {
@@ -97,7 +38,7 @@ async function loadOrnament() {
     ) {
 
       console.error(
-        "Could not find ornament.svg"
+        "ornament.svg could not be loaded."
       );
 
       return;
@@ -132,7 +73,7 @@ async function loadOrnament() {
     }
 
 
-    const allPaths =
+    const paths =
       Array.from(
         originalSVG.querySelectorAll(
           "path"
@@ -141,24 +82,26 @@ async function loadOrnament() {
 
 
     if (
-      allPaths.length === 0
+      paths.length === 0
     ) {
       return;
     }
 
 
+
     /*
-      Try to locate the dark ornament
-      instead of a white/background path.
+      Find a non-white ornamental path.
     */
 
-    const ornamentPath =
-      allPaths.find(
+    let ornamentPath =
+      paths.find(
         path => {
 
           const fill =
             (
-              path.getAttribute("fill") ||
+              path.getAttribute(
+                "fill"
+              ) ||
               ""
             )
               .trim()
@@ -175,14 +118,32 @@ async function loadOrnament() {
           );
 
         }
-      )
-      ||
-      allPaths[
-        allPaths.length - 1
-      ];
+      );
 
 
-    const newSVG =
+    /*
+      Fallback:
+      use the final SVG path.
+    */
+
+    if (
+      !ornamentPath
+    ) {
+
+      ornamentPath =
+        paths[
+          paths.length - 1
+        ];
+
+    }
+
+
+
+    /*
+      CREATE CLEAN SVG
+    */
+
+    const cleanSVG =
       document.createElementNS(
         "http://www.w3.org/2000/svg",
         "svg"
@@ -199,7 +160,7 @@ async function loadOrnament() {
       viewBox
     ) {
 
-      newSVG.setAttribute(
+      cleanSVG.setAttribute(
         "viewBox",
         viewBox
       );
@@ -212,20 +173,16 @@ async function loadOrnament() {
       const width =
         originalSVG.getAttribute(
           "width"
-        )
-        ||
-        "1000";
+        ) || 1000;
 
 
       const height =
         originalSVG.getAttribute(
           "height"
-        )
-        ||
-        "1000";
+        ) || 1000;
 
 
-      newSVG.setAttribute(
+      cleanSVG.setAttribute(
         "viewBox",
         `0 0 ${width} ${height}`
       );
@@ -233,11 +190,16 @@ async function loadOrnament() {
     }
 
 
-    newSVG.setAttribute(
+    cleanSVG.setAttribute(
       "preserveAspectRatio",
       "xMidYMid meet"
     );
 
+
+
+    /*
+      CLONE ORNAMENT PATH
+    */
 
     const path =
       ornamentPath.cloneNode(
@@ -280,7 +242,7 @@ async function loadOrnament() {
     );
 
 
-    newSVG.appendChild(
+    cleanSVG.appendChild(
       path
     );
 
@@ -290,32 +252,17 @@ async function loadOrnament() {
 
 
     ornamentMount.appendChild(
-      newSVG
+      cleanSVG
     );
 
 
-    let length;
 
+    /*
+      GET PATH LENGTH
+    */
 
-    try {
-
-      length =
-        path.getTotalLength();
-
-    }
-
-
-    catch (
-      error
-    ) {
-
-      console.error(
-        "Could not measure ornament path.",
-        error
-      );
-
-      return;
-    }
+    const length =
+      path.getTotalLength();
 
 
     path.style.strokeDasharray =
@@ -335,7 +282,7 @@ async function loadOrnament() {
 
 
     /* =====================================
-       DRAW OUT
+       CURL OUT
     ====================================== */
 
     function curlOut() {
@@ -394,7 +341,7 @@ async function loadOrnament() {
 
 
     /* =====================================
-       DRAW BACK IN
+       CURL IN
     ====================================== */
 
     function curlIn() {
@@ -445,7 +392,7 @@ async function loadOrnament() {
 
 
     /* =====================================
-       SCROLL OBSERVER
+       SHOW WHEN IN VIEW
     ====================================== */
 
     const observer =
@@ -477,8 +424,7 @@ async function loadOrnament() {
         },
 
         {
-          threshold:
-            0.25
+          threshold: 0.2
         }
 
       );
@@ -496,13 +442,14 @@ async function loadOrnament() {
   ) {
 
     console.error(
-      "Ornament failed to load:",
+      "Ornament failed:",
       error
     );
 
   }
 
 }
+
 
 
 loadOrnament();
