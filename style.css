@@ -1,6 +1,11 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
 * {
   box-sizing: border-box;
 }
+
 
 html,
 body {
@@ -8,21 +13,33 @@ body {
   padding: 0;
 }
 
+
 body {
+  min-height: 100vh;
+
   background: #f7f7ff;
+
   color: #292934;
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 }
+
 
 .portfolio-page {
   width: 100%;
+
   min-height: 100vh;
+
   overflow-x: hidden;
 }
 
 
+
 /* =========================================
-   FOLDER + WIP
+   FOLDER + WIP AREA
 ========================================= */
 
 .folder-wip-zone {
@@ -31,35 +48,57 @@ body {
   width: 620px;
   max-width: calc(100% - 40px);
 
-  height: 170px;
+  height: 165px;
 
-  margin: 70px auto 50px;
+  margin:
+    60px auto
+    50px;
 
   display: flex;
-  align-items: center;
+
   justify-content: center;
+  align-items: center;
 }
+
+
+
+/* =========================================
+   FOLDER BUTTON
+========================================= */
 
 .folder-button {
   position: relative;
+
   z-index: 20;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 
   gap: 8px;
 
+  margin: 0;
+
   padding: 0;
 
   border: 0;
+
   background: transparent;
 
   color: #292934;
+
   font: inherit;
 
   cursor: pointer;
 }
+
+
+
+/* =========================================
+   FOLDER ICON
+========================================= */
 
 .folder-icon {
   position: relative;
@@ -67,6 +106,10 @@ body {
   width: 140px;
   height: 108px;
 }
+
+
+
+/* pink rear */
 
 .folder-back {
   position: absolute;
@@ -79,12 +122,20 @@ body {
 
   background: #f2a2bc;
 
-  border-radius: 18px 18px 14px 14px;
+  border-radius:
+    18px
+    18px
+    14px
+    14px;
 
   box-shadow:
     0 10px 24px -8px
     rgba(124, 98, 112, 0.12);
 }
+
+
+
+/* folder tab */
 
 .folder-back::before {
   content: "";
@@ -99,8 +150,16 @@ body {
 
   background: #f2a2bc;
 
-  border-radius: 16px 16px 0 0;
+  border-radius:
+    16px
+    16px
+    0
+    0;
 }
+
+
+
+/* blush front */
 
 .folder-front {
   position: absolute;
@@ -113,109 +172,178 @@ body {
 
   background: #f9e7eb;
 
-  border: 1px solid rgba(41, 41, 52, 0.8);
+  border:
+    1px solid
+    rgba(41, 41, 52, 0.78);
 
-  border-radius: 16px;
+  border-radius:
+    16px;
 
   box-shadow:
     0 8px 22px -10px
     rgba(90, 75, 84, 0.18);
 }
 
+
+
+/* =========================================
+   FOLDER NAME
+========================================= */
+
 .folder-name {
   font-size: 13px;
+
   line-height: 1;
 
   color: #292934;
 
-  white-space: nowrap;
   text-align: center;
+
+  white-space: nowrap;
 }
 
 
+
 /* =========================================
-   WIP FILES
+   WIP AREA
 ========================================= */
 
 .wip-files {
   position: absolute;
 
+  top: 0;
   left: 50%;
-  top: 5px;
 
-  width: 500px;
+  width: 520px;
   height: 165px;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
   pointer-events: none;
 }
 
+
+
+/* =========================================
+   INDIVIDUAL WIP FILE
+========================================= */
+
 .wip-file {
   position: absolute;
 
-  left: 0;
-  top: 20px;
+  top: 10px;
+  left: 50%;
 
   width: 118px;
+
+  z-index:
+    calc(10 - var(--file-index));
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  color: #292934;
+
+  text-decoration: none;
 
   opacity: 0;
 
   pointer-events: none;
 
-  color: #292934;
-  text-decoration: none;
-
   transform:
-    translateX(170px)
-    translateY(12px)
-    scale(0.92)
-    rotate(-3deg);
+    translateX(-59px)
+    translateY(18px)
+    scale(0.88)
+    rotate(-4deg);
 
   transition:
-    transform 560ms cubic-bezier(.22,.61,.36,1),
-    opacity 300ms ease;
+    transform 600ms
+      cubic-bezier(.22,.61,.36,1),
+
+    opacity 280ms ease;
 
   transition-delay:
-    calc(var(--file-index) * 90ms);
+    calc(
+      var(--file-index) *
+      90ms
+    );
 }
 
-.folder-wip-zone.open .wip-file {
+
+
+/* =========================================
+   RELEASED FILES
+========================================= */
+
+.folder-wip-zone.open
+.wip-file {
   opacity: 1;
+
   pointer-events: auto;
 
   transform:
     translateX(
       calc(
-        230px +
-        var(--file-index) * 78px
+        70px +
+        var(--file-index) *
+        82px
       )
     )
+
     translateY(
       calc(
-        var(--file-index) * 8px
+        var(--file-index) *
+        8px
       )
     )
+
     scale(1)
+
     rotate(0deg);
 }
 
+
+
+/* =========================================
+   WIP TAG
+========================================= */
+
 .wip-tag {
-  display: inline-block;
+  align-self: flex-start;
 
-  margin-bottom: 4px;
+  padding:
+    3px
+    6px;
 
-  padding: 3px 6px;
+  background:
+    #fff1f3;
 
-  background: #fff1f3;
+  border:
+    1px solid
+    #292934;
 
-  border: 1px solid #292934;
+  border-radius:
+    4px;
 
-  border-radius: 4px;
+  font-size:
+    9px;
 
-  font-size: 9px;
-  font-weight: 600;
+  font-weight:
+    600;
+
+  line-height:
+    1;
 }
+
+
+
+/* =========================================
+   WIP SHEET
+========================================= */
 
 .wip-sheet {
   position: relative;
@@ -225,69 +353,187 @@ body {
 
   overflow: hidden;
 
-  background: rgba(255,255,255,0.82);
+  padding:
+    12px;
 
-  border: 1px solid #292934;
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.86
+    );
 
-  border-radius: 8px;
+  border:
+    1px solid
+    #292934;
+
+  border-radius:
+    8px;
 
   box-shadow:
     0 8px 20px -10px
-    rgba(70,59,91,0.18);
+    rgba(70, 59, 91, 0.18);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
 }
 
+
+
+/* =========================================
+   WIP SVG
+========================================= */
+
 .wip-sheet-vector {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
 
   object-fit: contain;
 
   opacity: 0.28;
+
+  pointer-events: none;
 }
 
 
+
 /* =========================================
-   INTRO
+   WIP TITLE
+========================================= */
+
+.wip-title {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.25;
+
+  color:
+    #292934;
+}
+
+
+
+/* =========================================
+   WIP HOVER
+========================================= */
+
+.folder-wip-zone.open
+.wip-file:hover {
+  transform:
+    translateX(
+      calc(
+        70px +
+        var(--file-index) *
+        82px
+      )
+    )
+
+    translateY(
+      calc(
+        var(--file-index) *
+        8px -
+        5px
+      )
+    )
+
+    scale(1.025);
+}
+
+
+
+/* =========================================
+   INTRO SECTION
 ========================================= */
 
 .intro-section {
   position: relative;
 
   width: 100%;
-  max-width: 1280px;
 
-  margin: 0 auto;
+  max-width:
+    1280px;
 
-  padding: 0 40px;
+  margin:
+    0 auto;
+
+  padding:
+    0 40px;
 }
+
+
+
+/* =========================================
+   INTRO HEADER
+========================================= */
 
 .intro-header {
   position: relative;
 
   width: 760px;
-  max-width: 100%;
 
-  margin: 0 auto;
+  max-width:
+    100%;
+
+  margin:
+    0 auto;
 }
+
+
+
+/* =========================================
+   PORTFOLIO HEADING
+========================================= */
 
 .portfolio-heading {
-  margin: 0 0 18px;
+  margin:
+    0 0
+    14px;
 
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 400;
+  font-size:
+    14px;
 
-  color: #292934;
+  line-height:
+    1.4;
+
+  font-weight:
+    400;
+
+  color:
+    #292934;
 }
+
 
 .portfolio-heading em {
-  font-style: italic;
-  font-weight: 600;
+  font-style:
+    italic;
+
+  font-weight:
+    600;
 }
 
+
 .portfolio-heading strong {
-  font-weight: 700;
+  font-weight:
+    700;
 }
+
 
 
 /* =========================================
@@ -299,13 +545,14 @@ body {
 
   width: 310px;
 
-  top: -85px;
+  top: -90px;
   right: -95px;
 
-  z-index: 5;
+  z-index: 10;
 
   pointer-events: none;
 }
+
 
 .ornament svg {
   display: block;
@@ -316,18 +563,26 @@ body {
   overflow: visible;
 }
 
+
 .ornament .ornament-path {
   fill: none;
 
-  stroke: #292934;
+  stroke:
+    #292934;
 
-  stroke-width: 1.2;
+  stroke-width:
+    1.2;
 
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-linecap:
+    round;
 
-  opacity: 0.9;
+  stroke-linejoin:
+    round;
+
+  opacity:
+    0.92;
 }
+
 
 
 /* =========================================
@@ -337,87 +592,171 @@ body {
 .translator-widget {
   display: block;
 
-  width: 100%;
-  max-width: 760px;
+  width: 760px;
+  max-width: 100%;
 
-  height: 500px;
+  height: 470px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  border: 0;
+  border:
+    0;
 
-  background: transparent;
+  background:
+    transparent;
 }
 
 
+
 /* =========================================
-   NAV
+   NAVIGATION
 ========================================= */
 
 .navigation-section {
   width: 100%;
-  max-width: 1280px;
 
-  margin: -20px auto 0;
+  max-width:
+    1280px;
 
-  padding: 0 40px 80px;
+  margin:
+    -10px auto
+    0;
+
+  padding:
+    0 40px 70px;
 }
+
 
 .navigation-widget {
   display: block;
 
-  width: 100%;
-  max-width: 760px;
+  width: 760px;
 
-  height: 150px;
+  max-width:
+    100%;
 
-  margin: 0 auto;
+  height: 130px;
 
-  border: 0;
+  margin:
+    0 auto;
 
-  background: transparent;
+  border:
+    0;
+
+  background:
+    transparent;
 }
+
+
+
+/* =========================================
+   FUTURE CONTENT
+========================================= */
+
+.work-section {
+  min-height:
+    400px;
+}
+
 
 
 /* =========================================
    MOBILE
 ========================================= */
 
-@media (max-width: 700px) {
+@media
+(max-width: 700px) {
 
   .folder-wip-zone {
-    width: calc(100% - 40px);
-    height: 280px;
+    height:
+      280px;
 
     margin:
-      50px auto
+      45px auto
       40px;
+
+    align-items:
+      flex-start;
   }
+
+
+  .folder-button {
+    margin-top:
+      20px;
+  }
+
+
+  .wip-files {
+    top:
+      110px;
+
+    width:
+      320px;
+  }
+
+
+  .folder-wip-zone.open
+  .wip-file {
+
+    transform:
+      translateX(
+        calc(
+          -115px +
+          var(--file-index) *
+          62px
+        )
+      )
+
+      translateY(
+        calc(
+          var(--file-index) *
+          8px
+        )
+      )
+
+      scale(.85)
+
+      rotate(0deg);
+  }
+
 
   .intro-section {
     padding:
       0 20px;
   }
 
-  .ornament {
-    width: 220px;
 
-    top: -50px;
-    right: -20px;
+  .ornament {
+    width:
+      210px;
+
+    top:
+      -58px;
+
+    right:
+      -15px;
   }
+
 
   .translator-widget {
-    height: 650px;
+    height:
+      650px;
   }
 
+
   .navigation-section {
-    margin-top: -10px;
+    margin-top:
+      -10px;
 
     padding:
       0 20px 60px;
   }
 
+
   .navigation-widget {
-    height: 180px;
+    height:
+      170px;
   }
+
 }
